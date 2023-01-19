@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<Box alignSelf="flex-start" pt="50">
 			<Heading fontWeight="extrabold" color="cyan.500" size="3xl">
-				Product getter
+				Products getter
 			</Heading>
 			<Text fontSize="1xl" color="gray.100">
 				Takes from API whatever you want

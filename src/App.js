@@ -1,7 +1,7 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-
 import { ModalProvider } from "./context/modalContext";
+import { ResultsProvider } from "./context/resultsContext";
 
 import SearchForm from "./components/SearchForm";
 import ResultsDisplayer from "./components/ResultsDisplayer";
@@ -11,8 +11,10 @@ function App() {
 		<ChakraProvider>
 			<ModalProvider>
 				<main>
-					<SearchForm />
-					<ResultsDisplayer />
+					<ResultsProvider>
+						<SearchForm />
+						<ResultsDisplayer />
+					</ResultsProvider>
 				</main>
 			</ModalProvider>
 		</ChakraProvider>

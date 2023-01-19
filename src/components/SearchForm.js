@@ -5,12 +5,10 @@ import { Heading, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import useUrl from "../hooks/useUrl";
 
 const SearchForm = () => {
-	// const { data, loading, error } = useFetch();
-	const { setUrl } = useUrl();
+	const { setId } = useUrl();
 
 	const handleURLChange = (e) => {
-		setUrl(`https://reqres.in/api/products?per_page=5&id=${e.target.value}`);
-		console.log("submitted");
+		setId(e.target.value);
 	};
 
 	return (

@@ -1,13 +1,18 @@
 import React from "react";
-import { HStack, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Text } from "@chakra-ui/react";
 
 const ResultRow = ({ id, name, year, color }) => {
 	return (
-		<HStack backgroundColor={color}>
-			<Text>{id}</Text>
-			<Text>{name}</Text>
-			<Text>{year}</Text>
-		</HStack>
+		<Grid
+			backgroundColor={color}
+			templateColumns="100px 1fr 1fr"
+			gap={6}
+			padding="15px"
+		>
+			<GridItem>{id}</GridItem>
+			<GridItem>{name}</GridItem>
+			<GridItem>{year}</GridItem>
+		</Grid>
 	);
 };
 

@@ -1,34 +1,46 @@
-import { HStack, Button, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Button, Text } from "@chakra-ui/react";
 import { useResults } from "../context/resultsContext";
-import useFetch from "../hooks/useFetch";
 
 const SearchForm = () => {
-	const { currentPage, totalPages, changePage } = useResults();
+	const { currentPage, totalPages, changePage, page, setPage } = useResults();
 
 	const handlePreviousPageButton = () => {
-		changePage(-1);
+		setPage(-1);
 	};
 
 	const handleNextPageButton = () => {
-		changePage(1);
+		setPage(1);
 	};
 
 	return (
-		<HStack>
-			<Button
-				display={Number(currentPage) === Number("1") && "none"}
-				onClick={handlePreviousPageButton}
-			>
-				Previous page
-			</Button>
-			<Text>{`Page ${currentPage} / ${totalPages}`}</Text>
-			<Button
-				display={Number(currentPage) === Number(totalPages) && "none"}
-				onClick={handleNextPageButton}
-			>
-				Next page
-			</Button>
-		</HStack>
+		<Grid
+			mb="60px"
+			templateColumns="1fr 1fr 1fr"
+			alignItems="center"
+			alignContent="center"
+		>
+			<GridItem>
+				<Button
+					display={Number(currentPage) === Number("1") && "none"}
+					onClick={handlePreviousPageButton}
+					bgColor="gray.400"
+				>
+					Prev page
+				</Button>
+			</GridItem>
+			<GridItem>
+				<Text padding="10px">{`Page ${currentPage} / ${totalPages}`}</Text>
+			</GridItem>
+			<GridItem>
+				<Button
+					display={Number(currentPage) === Number(totalPages) && "none"}
+					onClick={handleNextPageButton}
+					bgColor="gray.400"
+				>
+					Next page
+				</Button>
+			</GridItem>
+		</Grid>
 	);
 };
 

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const ResultsContext = createContext(undefined);
 
@@ -7,7 +8,10 @@ export const ResultsProvider = ({ children }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
 	const [error, setError] = useState(false);
-	const [id, setId] = useState("");
+
+	const [searchParams, setSearchParams] = useSearchParams({ id: "", page: 1 });
+	const id = searchParams.get("id");
+	const page = searchParams.get("page");
 
 	const updateResults = (fetchedData) => {
 		if (Array.isArray(fetchedData.data)) {
@@ -29,6 +33,18 @@ export const ResultsProvider = ({ children }) => {
 		setCurrentPage((currentPage) => Number(currentPage) + change);
 	};
 
+	const setId = (id) => {
+		setSearchParams({
+			id,
+		});
+	};
+
+	const setPage = (pageChange) => {
+		setSearchParams({
+			page: Number(page) + pageChange,
+		});
+	};
+
 	return (
 		<ResultsContext.Provider
 			value={{
@@ -41,6 +57,8 @@ export const ResultsProvider = ({ children }) => {
 				setError,
 				id,
 				setId,
+				page,
+				setPage,
 			}}
 		>
 			{children}

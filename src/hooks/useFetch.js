@@ -4,7 +4,7 @@ import { useResults } from "../context/resultsContext";
 
 export default function useFetch() {
 	const [isLoading, setIsLoading] = useState(true);
-	const { updateResults, setError, id, currentPage } = useResults();
+	const { updateResults, setError, id, page } = useResults();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -12,7 +12,7 @@ export default function useFetch() {
 			setError(false);
 			try {
 				const result = await axios(
-					`https://reqres.in/api/products?per_page=5&id=${id}&page=${currentPage}`
+					`https://reqres.in/api/products?per_page=5&id=${id}&page=${page}`
 				);
 				updateResults(result.data);
 			} catch (error) {
@@ -22,7 +22,7 @@ export default function useFetch() {
 		};
 
 		fetchData();
-	}, [id, currentPage]);
+	}, [id, page]);
 
 	return { isLoading };
 }

@@ -20,8 +20,11 @@
 20) id field lets you filter results by id
 21) Proposed styling library(contains also icons): https://mui.com/
 
+https://reqres.in/api/products
+
 started:
 
 19.01
     00:10 - 00:30 - reading the task, creating this list and testing the endpoint
     00:30 - 01:30 - create app structure
+    11:10 - - create custom hook to handle data fetching

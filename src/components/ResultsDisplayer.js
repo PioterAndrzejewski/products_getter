@@ -1,6 +1,8 @@
 import React from "react";
 import { Heading, VStack } from "@chakra-ui/react";
 
+import useFetch from "../hooks/useFetch";
+
 import ResultRow from "./ResultRow";
 
 const searchResults = [
@@ -42,17 +44,19 @@ const searchResults = [
 ];
 
 const ResultsDisplayer = () => {
+	const { data } = useFetch();
 	return (
 		<>
 			<Heading as="h1">Results:</Heading>
 			<VStack>
-				{searchResults.map((result) => (
+				{data.data.map((product) => (
 					<ResultRow
-						key={result.name}
-						id={result.id}
-						year={result.year}
-						color={result.color}
-						pantoneValue={result.pantone_value}
+						key={product.name}
+						id={product.id}
+						name={product.name}
+						year={product.year}
+						color={product.color}
+						pantoneValue={product.pantone_value}
 					/>
 				))}
 			</VStack>

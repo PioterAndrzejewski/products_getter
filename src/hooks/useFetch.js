@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
+import useUrl from "./useUrl";
 
-export default function useFetch(url) {
+export default function useFetch() {
+	// const { url } = useUrl();
+
+	const url = "https://reqres.in/api/products?per_page=5";
+
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);

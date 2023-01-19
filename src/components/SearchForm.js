@@ -1,14 +1,14 @@
 import React from "react";
 import { Heading, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
-import useFetch from "../hooks/useFetch";
-import { useState } from "react";
+
+// import useFetch from "../hooks/useFetch";
+import useUrl from "../hooks/useUrl";
 
 const SearchForm = () => {
-	const [url, setUrl] = useState("https://reqres.in/api/products?per_page=5");
-	const { data, loading, error } = useFetch(url);
+	// const { data, loading, error } = useFetch();
+	const { setUrl } = useUrl();
 
-	const handleChange = (e) => {
-		e.preventDefault();
+	const handleURLChange = (e) => {
 		setUrl(`https://reqres.in/api/products?per_page=5&id=${e.target.value}`);
 		console.log("submitted");
 	};
@@ -25,9 +25,8 @@ const SearchForm = () => {
 						type="number"
 						name="id"
 						borderRadius="0"
-						onChange={handleChange}
+						onChange={handleURLChange}
 					></Input>
-					<Input type="submit" value="Submit" bgColor="gray.100" />
 				</InputGroup>
 			</form>
 		</>

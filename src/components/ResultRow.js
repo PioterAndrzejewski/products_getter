@@ -1,10 +1,12 @@
 import React from "react";
 import { HStack, Text } from "@chakra-ui/react";
 
-const ResultRow = ({ id, year, color, pantoneValue }) => {
+const ResultRow = ({ id, name, year, color }) => {
 	return (
-		<HStack>
-			<Text>Another result</Text>
+		<HStack backgroundColor={color}>
+			<Text>{id}}</Text>
+			<Text>{name}}</Text>
+			<Text>{year}}</Text>
 		</HStack>
 	);
 };

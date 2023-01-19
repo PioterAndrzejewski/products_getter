@@ -2,7 +2,7 @@ import { Grid, GridItem, Button, Text } from "@chakra-ui/react";
 import { useResults } from "../context/resultsContext";
 
 const SearchForm = () => {
-	const { currentPage, totalPages, changePage, page, setPage } = useResults();
+	const { currentPage, totalPages, setPage } = useResults();
 
 	const handlePreviousPageButton = () => {
 		setPage(-1);

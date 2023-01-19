@@ -1,18 +1,9 @@
-import { useState } from "react";
-import {
-	Box,
-	Heading,
-	Input,
-	InputGroup,
-	InputLeftAddon,
-} from "@chakra-ui/react";
+import { Box, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 
-import useUrl from "../hooks/useFetch";
 import { useResults } from "../context/resultsContext";
 
 const SearchForm = () => {
-	const { setId, id, searchParams, setSearchParams, searchId, searchPage } =
-		useResults();
+	const { setId, id } = useResults();
 
 	const handleURLChange = (e) => {
 		setId(e.target.value.replace(/[^0-9]/g, ""));
@@ -29,6 +20,7 @@ const SearchForm = () => {
 					borderRadius="8px"
 					placeholder="Please specify ID if needed"
 					onChange={handleURLChange}
+					_placeholder={{ color: "rgba(255, 255, 255, 0.6)" }}
 				></Input>
 			</InputGroup>
 		</Box>

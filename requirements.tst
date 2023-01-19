@@ -11,7 +11,7 @@
 6) Additionally, the background colour of each row should be taken from the colour property.
 // ✔️ implemented
 7) After clicking on a row a modal should be displayed and should present all item data.
-// ❌ 
+// ✔️ implemented
 8) The table should display 5 items per page.
 // ✔️ done with api requests
 9) Under the table, there should be a pagination component, which allows switching between pages with “next” and “previous” arrows.
@@ -51,4 +51,5 @@ started:
     11:10 - 11:40 - create custom hook to handle data fetching
     11:40 - 18:00 - implement most functions, correct mistakes
     18:00 - 18:50 - finding and implementing solution for search params in URL
-    18:50 - 10:50 - basic styling
+    18:50 - 19:50 - basic styling
+    23:10 - - deploy to github pages

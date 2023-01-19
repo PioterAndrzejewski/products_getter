@@ -9,7 +9,7 @@ import {
 
 const ResultsDisplayer = () => {
 	return (
-		<Alert status="error">
+		<Alert status="error" backgroundColor="red.200">
 			<AlertIcon />
 			<VStack>
 				<AlertTitle alignSelf="flex-start">Something went wrong.</AlertTitle>

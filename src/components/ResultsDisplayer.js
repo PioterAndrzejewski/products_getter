@@ -31,13 +31,17 @@ const ResultsDisplayer = () => {
 				Your query results:
 			</Heading>
 			<Grid gap={6}>
-				<ResultRow key="firstRow" id="id" name="name" year="year" />
+				<GridItem key="heading-year" h="20" width="600px" cursor="pointer">
+					<ResultRow key="heading-year" id="id" name="name" year="year" />
+				</GridItem>
+
 				{isLoading ? (
 					<Text>Loading</Text>
 				) : (
 					products.map((product) => {
 						return (
 							<GridItem
+								key={product.year}
 								h="20"
 								width="600px"
 								cursor="pointer"
@@ -47,7 +51,6 @@ const ResultsDisplayer = () => {
 								}}
 							>
 								<ResultRow
-									key={product.name}
 									id={product.id}
 									name={product.name}
 									year={product.year}

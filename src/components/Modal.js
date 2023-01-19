@@ -4,18 +4,14 @@ import {
 	ModalOverlay,
 	ModalContent,
 	ModalHeader,
-	ModalFooter,
-	ModalBody,
 	ModalCloseButton,
-	useDisclosure,
-	Button,
-	useModal,
+	ModalBody,
 } from "@chakra-ui/react";
 
 import { useModalContext } from "../context/modalContext";
 
 export default function ModalElement() {
-	const { onOpen, isOpen, onClose, modalState } = useModalContext();
+	const { isOpen, onClose, modalState } = useModalContext();
 	const { id, name, year, color, pantone_value } = modalState;
 	return (
 		<>
@@ -25,8 +21,11 @@ export default function ModalElement() {
 					<ModalHeader>Additional info:</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody>
-						id: {id}, name: {name}, year: {year}, color: {color}, pantone value:{" "}
-						{pantone_value}
+						{`id: ${id},
+                        name: ${name},
+                        year: ${year}, 
+                        color: ${color},
+                        pantone value: ${pantone_value}`}
 					</ModalBody>
 				</ModalContent>
 			</Modal>

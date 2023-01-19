@@ -43,13 +43,3 @@
 
 https://reqres.in/api/products
 
-started:
-
-19.01
-    00:10 - 00:30 - reading the task, creating this list and testing the endpoint
-    00:30 - 01:30 - create app structure
-    11:10 - 11:40 - create custom hook to handle data fetching
-    11:40 - 18:00 - implement most functions, correct mistakes
-    18:00 - 18:50 - finding and implementing solution for search params in URL
-    18:50 - 19:50 - basic styling
-    23:10 - - deploy to github pages

@@ -1,14 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import { Heading, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 
-// import useFetch from "../hooks/useFetch";
-import useUrl from "../hooks/useUrl";
+import useUrl from "../hooks/useFetch";
+import { useResults } from "../context/resultsContext";
 
 const SearchForm = () => {
-	const { setId } = useUrl();
+	const { setId, id } = useResults();
 
 	const handleURLChange = (e) => {
-		setId(e.target.value);
+		setId(e.target.value.replace(/[^0-9]/g, ""));
 	};
 
 	return (
@@ -20,9 +20,11 @@ const SearchForm = () => {
 				<InputGroup>
 					<InputLeftAddon children="Product ID" />
 					<Input
-						type="number"
+						type="text"
 						name="id"
+						value={id}
 						borderRadius="0"
+						placeholder="Please specify ID if needed"
 						onChange={handleURLChange}
 					></Input>
 				</InputGroup>

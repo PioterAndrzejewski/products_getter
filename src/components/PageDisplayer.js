@@ -1,21 +1,34 @@
 import { HStack, Button, Text } from "@chakra-ui/react";
-
-import useUrl from "../hooks/useUrl";
+import { useResults } from "../context/resultsContext";
+import useFetch from "../hooks/useFetch";
 
 const SearchForm = () => {
-	const { setPage } = useUrl();
-	const { results } = useResults();
+	const { currentPage, totalPages, changePage } = useResults();
 
-	const handlePageChange = (e) => {
-		setPage(e.target.value);
+	const handlePreviousPageButton = () => {
+		changePage(-1);
+	};
+
+	const handleNextPageButton = () => {
+		changePage(1);
 	};
 
 	return (
-        <Hstack>
-            <Button value={<}>
-            <Text>Page </Text>
-            <Button>
-        </Hstack>
+		<HStack>
+			<Button
+				display={Number(currentPage) === Number("1") && "none"}
+				onClick={handlePreviousPageButton}
+			>
+				Previous page
+			</Button>
+			<Text>{`Page ${currentPage} / ${totalPages}`}</Text>
+			<Button
+				display={Number(currentPage) === Number(totalPages) && "none"}
+				onClick={handleNextPageButton}
+			>
+				Next page
+			</Button>
+		</HStack>
 	);
 };
 

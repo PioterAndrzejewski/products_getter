@@ -1,41 +1,44 @@
 import React from "react";
-import { Heading, VStack, Text } from "@chakra-ui/react";
+import { Heading, VStack, Text, Center } from "@chakra-ui/react";
 import { useResults } from "../context/resultsContext";
-import useUrl from "../hooks/useUrl";
+import useFetch from "../hooks/useFetch";
 import ResultRow from "./ResultRow";
 
+import PageDisplayer from "./PageDisplayer";
+import Error from "./Error";
+
 const ResultsDisplayer = () => {
-	const { results } = useResults();
-	const { isLoading } = useUrl();
+	const { products, error } = useResults();
+	const { isLoading } = useFetch();
+	if (error) {
+		return <Error />;
+	}
 
 	return (
 		<>
-			<Heading as="h1">Results:</Heading>
+			<Heading as="h1" size="md">
+				Your query results:
+			</Heading>
 			<VStack>
 				{isLoading ? (
 					<Text>Loading</Text>
-				) : results.data instanceof Array ? (
-					results.data.map((result) => {
+				) : (
+					products.map((product) => {
 						return (
 							<ResultRow
-								key={result.name}
-								id={result.id}
-								name={result.name}
-								year={result.year}
-								color={result.color}
+								key={product.name}
+								id={product.id}
+								name={product.name}
+								year={product.year}
+								color={product.color}
 							/>
 						);
 					})
-				) : (
-					<ResultRow
-						key={results.data.name}
-						id={results.data.id}
-						name={results.data.name}
-						year={results.data.year}
-						color={results.data.color}
-					/>
 				)}
 			</VStack>
+			<Center>
+				<PageDisplayer />
+			</Center>
 		</>
 	);
 };

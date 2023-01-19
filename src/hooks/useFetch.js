@@ -1,16 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useResults } from "../context/resultsContext";
 
 export default function useFetch() {
-	const [data, setData] = useState(null);
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+	const { updateResults, setError, id, currentPage } = useResults();
 
-	async function fetchData(url) {
-		const response = await fetch(url);
-		const data = await response.json();
-		setData(data);
-		console.log(data);
-	}
+	useEffect(() => {
+		const fetchData = async () => {
+			setIsLoading(true);
+			setError(false);
+			try {
+				const result = await axios(
+					`https://reqres.in/api/products?per_page=5&id=${id}&page=${currentPage}`
+				);
+				updateResults(result.data);
+			} catch (error) {
+				setError(true);
+			}
+			setIsLoading(false);
+		};
 
-	return { data, loading, error, fetchData };
+		fetchData();
+	}, [id, currentPage]);
+
+	return { isLoading };
 }

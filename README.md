@@ -21,7 +21,7 @@ After cloning the repository and installing dependencies run the app using npm s
 
   ```sh
   $ git clone https://github.com/PioterAndrzejewski/products_getter.git
-  $ cd products-getter
+  $ cd products_getter
   $ npm i
   $ npm start
   ```

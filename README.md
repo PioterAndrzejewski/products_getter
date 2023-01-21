@@ -9,7 +9,7 @@
 <h3 align="center">Products getter</h3>
 
   <p align="center">
-   A simple SPA application presenting communication with the API.
+   A simple single page application presenting communication with the API.
     <br />
     <br />
   </p>

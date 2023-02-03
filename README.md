@@ -9,7 +9,7 @@
 <h3 align="center">Products getter</h3>
 
   <p align="center">
-   A simple single page application presenting communication with the API.
+   A single page application presenting communication with the API.
     <br />
     <br />
   </p>
@@ -52,4 +52,4 @@ The app consists of several elements:
 The application was a pre-recruitment task and there are no plans of future development. 
     
 ## Sources
-This app is inspired by Codibly recruitment task and was created in accordance with the documentation provided by the Codibly.
+The task is a recruitment task for the Codibly company and was performed in accordance with the specification provided by Codibly. 
